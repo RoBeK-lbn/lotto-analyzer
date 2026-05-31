@@ -1,1 +1,80 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lotto Analyzer Pro</title>
 
+<link rel="stylesheet" href="style.css">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+<header>
+<h1>🎯 Lotto Analyzer Pro</h1>
+<p>Analiza losowań i generator statystyczny</p>
+</header>
+
+<div class="container">
+
+<div class="card">
+
+<h2>Wybierz grę</h2>
+
+<select id="gameSelect">
+<option value="lotto">Lotto</option>
+<option value="mini">Mini Lotto</option>
+<option value="multi">Multi Multi</option>
+<option value="keno">Keno</option>
+<option value="euro">Euro Jackpot</option>
+<option value="pensja">Ekstra Pensja</option>
+<option value="kaskada">Kaskada</option>
+<option value="szybkie">Szybkie 600</option>
+</select>
+
+<h2>Ilość liczb</h2>
+
+<input type="number" id="countNumbers" value="6" min="1" max="20">
+
+<button onclick="loadData()">
+Pobierz i analizuj
+</button>
+
+<button onclick="generateNumbers()">
+Generuj liczby
+</button>
+
+</div>
+
+<div class="card">
+
+<h2>Wynik analizy</h2>
+
+<div id="stats"></div>
+
+</div>
+
+<div class="card">
+
+<h2>Wygenerowane liczby</h2>
+
+<div id="generated"></div>
+
+</div>
+
+<div class="card">
+
+<h2>Top 20 liczb</h2>
+
+<canvas id="chart"></canvas>
+
+</div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
