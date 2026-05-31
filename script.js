@@ -18,7 +18,23 @@ const draws =
 await response.json();
 
 analyzeDraws(draws);
+const pairs =
+findPairs(draws);
 
+const topPairs =
+Object.entries(pairs)
+.sort((a,b)=>b[1]-a[1])
+.slice(0,10);
+
+document.getElementById("stats").innerHTML +=
+"<br><br><b>TOP 10 PAR:</b><br>";
+
+topPairs.forEach(pair=>{
+
+document.getElementById("stats").innerHTML +=
+pair[0] + " : " + pair[1] + "<br>";
+
+});
 }catch(error){
 
 statsDiv.innerHTML =
@@ -174,5 +190,29 @@ frequency[number] =
 });
 
 showStats(frequency);
+function findPairs(draws){
 
+const pairs = {};
+
+draws.forEach(draw=>{
+
+for(let i=0;i<draw.length;i++){
+
+for(let j=i+1;j<draw.length;j++){
+
+const pair =
+`${draw[i]}-${draw[j]}`;
+
+pairs[pair] =
+(pairs[pair] || 0) + 1;
+
+}
+
+}
+
+});
+
+return pairs;
+
+}
 }
