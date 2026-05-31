@@ -2,11 +2,32 @@
 
 async function loadData(){
 
+async function loadData(){
+
 const statsDiv =
 document.getElementById("stats");
 
 statsDiv.innerHTML =
-"Analizowanie danych...";
+"Pobieranie danych...";
+
+try{
+
+const response =
+await fetch("draws.json");
+
+const draws =
+await response.json();
+
+analyzeDraws(draws);
+
+}catch(error){
+
+statsDiv.innerHTML =
+"Błąd pobierania danych";
+
+}
+
+}
 
 try{
 
