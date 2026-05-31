@@ -159,4 +159,21 @@ numbers.sort((a,b)=>a-b);
 document.getElementById("generated").innerHTML =
 numbers.join(" - ");
 
+}function analyzeDraws(draws){
+
+const frequency = {};
+
+draws.forEach(draw=>{
+
+draw.forEach(number=>{
+
+frequency[number] =
+(frequency[number] || 0) + 1;
+
+});
+
+});
+
+showStats(frequency);
+
 }
