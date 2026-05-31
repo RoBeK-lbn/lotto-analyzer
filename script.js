@@ -13,8 +13,7 @@ statsDiv.innerHTML =
 try{
 
 const response =
-await fetch("draws.json");
-
+await await fetch("data/draws.json");
 const draws =
 await response.json();
 
