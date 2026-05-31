@@ -1,4 +1,4 @@
-let chart;
+7let chart;
 
 async function loadData(){
 
@@ -105,6 +105,30 @@ Math.floor(Math.random()*49)+1;
 
 if(!numbers.includes(n)){
 numbers.push(n);
+}function countRepeats(draws){
+
+let repeats = {};
+
+for(let i=1;i<draws.length;i++){
+
+let previous = draws[i-1];
+let current = draws[i];
+
+current.forEach(num=>{
+
+if(previous.includes(num)){
+
+repeats[num] =
+(repeats[num] || 0) + 1;
+
+}
+
+});
+
+}
+
+return repeats;
+
 }
 
 }
